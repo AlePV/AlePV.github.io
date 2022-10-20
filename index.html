@@ -1,113 +1,705 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font: 400 15px/1.8 "Lato", sans-serif;
-  color: #777;
-}
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  position: relative;
-  opacity: 0.65;
-  background-attachment: fixed;
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  /*agregar color oscuro para el fondo*/
+  background: #f1f1f1;
+}
+  /* Header/Logo Title */
+.bg-image {
+  /* The image used */
+  background-image:url('bg.jpg');
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-}
-.bgimg-1 {
-  background-image: url("img_parallax.jpg");
-  min-height: 100%;
 }
 
-.bgimg-2 {
-  background-image: url("img_parallax2.jpg");
-  min-height: 400px;
-}
-
-.bgimg-3 {
-  background-image: url("img_parallax3.jpg");
-  min-height: 400px;
-}
-
-.caption {
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
   position: absolute;
-  left: 0;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.header {
+  padding: 1px;
+  text-align: center;
+  background: linear-gradient(to bottom, 	#254666 30%, #4d667f 100%);
+  color: white;
+  font-size: 20px;
+  margin-left: 200px;
+  margin-top: -150px;
+  height:150px;
+}
+#particles-js {
+	padding: 1px;
+    height: 150px;
+   	background-color: #294e71;
+	background-image: url("");
+	color: white;
+	font-size: 20px;
+	padding: 1px;
+	z-index: -1;
+}	
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  .sidebar {
+  margin: 0;  
+  padding: 0;
+  width: 200px;
+  background-color: #FFFFFF;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+} 
+.sidebar a.active {
+  background-color: #294e71;
+  color: white;
+}
+.sidebar a:hover:not(.active) {
+  background-color: #4d667f;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 100px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 100px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+  .card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 10px;
+   margin-left: 230px;
+   margin-right:30px;
+   margin-bottom: 10px;
+   box-shadow: 5px 5px 5px #888888;
+}
+  .table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.column0 {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+.column1 {
+  float: left;
+  width: 80%;
+  padding: 10px;
+}
+.column2 {
+  float: left;
+  width: 80%;
+  padding: 10px;
+}
+.column3 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+.column4 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+
+.left {
+  width: 80%;
+}
+.right {
+  width: 20%;
+}
+/* Remove extra left and right margins, due to padding */
+.row {margin: -5px -5px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.mySlides {display: none;}
+.img_banner {vertical-align: middle;}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 400px;
+  position: relative;
+  margin: auto;
+}
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
   width: 100%;
   text-align: center;
-  color: #000;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 0px;
+  width: 0px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
 }
 
-.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  letter-spacing: 10px;
+.img-circle {
+margin-top -50px; 
+border-radius: 50%;
+max-width: 150px;
 }
 
-h3 {
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111;
+.mySlides2 {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-  }
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
 }
 </style>
 </head>
 <body>
 
-<div class="bgimg-1">
-  <div class="caption">
-  <span class="border">SCROLL DOWN</span>
+  
+<div class="sidebar">
+  <br>
+  <img src="/media/Logo-02.jpg" alt="Logo" style="width:90%;max-width:500px" class="center">
+  <a class="active">About us</a>
+  <a href="/2_research">What we do</a>
+  <a href="/3_publications">Publications</a>
+  <a href="/4_members">Meet the team</a>
+  <a href="/5.1_resources">Resources</a>
+  <a href="/5_join_us">Join us</a>
+  <a href="/8_labmood">Lab Mood</a>
+  <a href="/6.1_Gallery">Gallery</a>
+  <a href="/7_contact">Contact</a>
+</div>
+
+<div id="particles-js"></div>
+<div class="header">
+  <h1>Ramírez Lab </h1>
+  <p>Pharmacoinformatics & Drug Design</p>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   </div>
-</div>
 
-<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-  <h3 style="text-align:center;">Parallax Demo</h3>
-  <p>Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</p>
-</div>
+<div class="card">
+<div class="row">
+<div class="column1">
+          <div class="column2">
+		  <h2>Welcome to the Ramírez Lab</h2>
+          <div class="bg-image"></div>
+		  <p align="justify">We are a multidisciplinary group focused on the study of biomolecular systems by using theoretical and experimental approaches. 
+			We aim to use computational polypharmacology with wet lab analyses to strengthen the drug design and development processes. Our work involves collaboration 
+			with medicinal chemists, biochemists, and biologists, and we are part of the <a href="https://cienciasbiologicasudec.cl/departamentos/farmacologia/" target="_blank">Pharmacology Department</a> - <a href="https://cienciasbiologicasudec.cl/" target="_blank">Faculty of Biological Sciences</a> at <a href="https://www.udec.cl/pexterno/" target="_blank">University of Concepción</a>.</p>
+            </div>
+            
+        
+			<div class="column3">
+			<img class="mySlides fade center img-circle" src="media/Foto-DavidR.png" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/estanislao.png" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/cpena_avatar.jpg" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/Avatar_Laura_rodriguez.jpg" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/alexis_avatar.png" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/avatar_Claudia_Martinez.jpg" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/avatar_Juana_Muñoz.jpg" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/avatar_alejandro_amaya.jpg" style="width:100%">
+			<img class="mySlides fade center img-circle" src="media/tabata_avatar.png" style="width:100%">						
+		    </div>
+                   
+<div class="column0">          
+<hr size="2px" color="black"/> 
+</div>  
+  
+<div class="column1">
+  <h2><a href="/2_research">Active research areas</a></h2>
+  <li align="justify">Pharmacoinformatics & network pharmacology: Multi-target drug design against complex diseases.</li><br> 
+  <li align="justify">Drug design by machine learning, artificial intelligence, and data science.</li><br>
+  <li align="justify">Molecular simulations and modeling</li><br>
 
-<div class="bgimg-2">
-  <div class="caption">
-  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>
+  <h2>Automatic Slideshow</h2>
+  <p>Change image every 2 seconds:</p>
+
+  <div class="slideshow-container">
+
+  <div class="mySlides2 fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="img_nature_wide.jpg" style="width:100%">
+    <div class="text">Caption Text</div>
   </div>
-</div>
 
-<div style="position:relative;">
-  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-  <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+  <div class="mySlides2 fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="img_snow_wide.jpg" style="width:100%">
+    <div class="text">Caption Two</div>
   </div>
-</div>
 
-<div class="bgimg-3">
-  <div class="caption">
-  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>
+  <div class="mySlides2 fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="img_mountains_wide.jpg" style="width:100%">
+    <div class="text">Caption Three</div>
   </div>
-</div>
 
-<div style="position:relative;">
-  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-  <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
   </div>
-</div>
+  <br>
 
-<div class="bgimg-1">
-  <div class="caption">
-  <span class="border">COOL!</span>
+  <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
   </div>
+
+  
 </div>
 
+<h2>Automatic Slideshow</h2>
+<p>Change image every 2 seconds:</p>
+
+<div class="slideshow-container">
+
+<div class="mySlides2 fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img_nature_wide.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides2 fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img_snow_wide.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides2 fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img_mountains_wide.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<div class="column0">          
+<hr size="2px" color="black"/> 
+</div> 
+
+<div class="column1">
+  <h2><a href="/3_publications">Latest publication</a></h2>
+       <h3><a href="https://www.frontiersin.org/articles/10.3389/fphar.2022.952192/full" target="_blank">Network pharmacology reveals multitarget mechanism of action of drugs to be repurposed for COVID-19</a></h3>
+       <h5>Alegría-Arcos, M.; Barbosa, T.; Sepúlveda, F.; Combariza, G.; González, J.; Gil, C.; Martínez, A.; and Ramírez, D.</h5>
+   <p>Frontiers in Pharmacology. 13:952192. DOI: 10.3389/fphar.2022.952192</p>
+      <div class="row">
+      <div class="column2">
+      <p align="justify">The coronavirus disease 2019 pandemic accelerated drug/vaccine development processes, integrating scientists all over the globe to create therapeutic alternatives against this virus. In this work, we have collected information regarding proteins from SARS-CoV-2 and humans and how these proteins interact. We have also collected information from public databases on protein–drug interactions. We represent this data as networks that allow us to gain insights into protein–protein interactions between both organisms. With the collected data, we have obtained statistical metrics of the networks. This data analysis has allowed us to find relevant information on which proteins and drugs are the most relevant from the network pharmacology perspective. This method not only allows us to focus on viral proteins as the main targets for COVID-19 but also reveals that some human proteins could be also important in drug repurposing campaigns. As a result of the analysis of the SARS-CoV-2–human interactome, we have identified some old drugs, such as disulfiram, auranofin, gefitinib, suloctidil, and bromhexine as potential therapies for the treatment of COVID-19 deciphering their potential complex mechanism of action.</p>
+      </div>
+      <div class ="column3">
+      <img src="/media/Paper-TOCs/TOC-Frontiers-REDES-COVID.jpg" style="width:200%">
+      </div>
+      </div>
+      </div>
+      </div>
+      
+    
+      
+<div class="column4">
+<a class="twitter-timeline" data-height="1000" data-theme="light" href="https://twitter.com/theramirezlab?ref_src=twsrc%5Etfw">Tweets by theramirezlab</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+     
+      </div>
+       </div>
+     
+
+
+
+  
+ 
+<div class="card">
+  <h2>Funding</h2>
+  <table>
+  <tr>
+    <th>Grant</th>
+    <th>Funded by</th>
+    <th>Role</th>
+    <th>Date</th>
+  </tr>
+  <tr>
+    <td>Towards systems pharmacology to design multi-target directed ligands as therapeutic alternatives for Alzheimer’s disease.</td>
+    <td>Chile - Fondecyt Regular No. 1220656</td>
+    <td>Principal Investigator</td>
+    <td>2022 – 2025</td>
+  </tr>
+  <tr>
+  <td>Let's talk pharmacology!!!</td>
+    <td>Chile - Universidad de Concepción No. UCO1966</td>
+    <td>Principal Investigator</td>
+    <td>2022</td>
+  </tr>
+  <tr>
+  <td>Identificación de moduladores del canal iónico TMC1 como alternativa terapéutica para el tratamiento de la sordera.</td>
+    <td>Chile - ANID No. FOVI210027</td>
+    <td>Principal Investigator</td>
+    <td>2022 - 2023</td>
+  </tr>
+  <tr>
+    <td>Development of novel therapeutic alternatives for alcohol-use disorders: a multidisciplinary approach.</td>
+    <td>Chile - ANID No. ACT210012</td>
+    <td>Deputy Director</td>
+    <td>2022 - 2025</td>
+  </tr>
+  <tr>
+    <td>Coupling artificial intelligence and neurosciences to potentiate pharmacological actions of tibolone over neuroglobin signaling in traumatic brain injury.</td>
+    <td>Ireland - Science Foundation Ireland</td>
+    <td>Associate Investigator</td>
+    <td>2021 - 2024</td>
+  </tr>	   
+  <tr>
+    <td>Reposicionamiento de medicamentos para tratamiento de la pandemia por coronavirus (COVID-19).</td>
+    <td>Chile - ANID No. COVID0199</td>
+    <td>Principal Investigator</td>
+    <td>2021 - 2022</td>
+  </tr>
+  <tr>
+    <td>Actualización de los servicios de ANSEP (Astrocyte-neuron simulation environment platform) bajo el estudio integrativo de enfermedades neurodegenerativas.</td>
+    <td>Colombia - Pontificia Universidad Javeriana</td>
+    <td>Associate Investigator</td>
+    <td>2021 - 2022</td>
+  </tr>
+  <tr>
+    <td>Target- and ligand-based drugs to control SARS-CoV-2 pandemic (CoV2Drugs).</td>
+    <td>Spain - CSIC-COV19-015</td>
+    <td>Associate Investigator</td>
+    <td>2020 - 2021</td>
+  </tr>
+  <tr>
+    <td>Multi-Target Drug Design Against Neurodegenerative Diseases.</td>
+    <td>Chile - Conicyt No. REDES190074</td>
+    <td>Principal Investigator</td>
+    <td>2020 - 2021</td>
+  </tr>
+  <tr>
+    <td>INSECTR – International Network to Study Secondary Metabolite Transport In Plants.</td>
+    <td>Chile - Conicyt No. REDES1900254</td>
+    <td>Associate Investigator</td>
+    <td>2020 - 2021</td>
+  </tr>
+  <tr>
+    <td>Identificación de reacciones controladoras de lipotoxicidad inducida por ácido palmítico en un modelo computacional multiómico astrocitario.</td>
+    <td>Colombia - Colciencias No. 67270</td>
+    <td>Associate Investigator</td>
+    <td>2020 - 2022</td>
+  </tr>   
+  <tr>
+    <td>Scholarship Programme for Young Professors and Researchers from Latin American Universities.</td>
+    <td>Spain - Coimbra group</td>
+    <td>Principal Investigator</td>
+    <td>2019</td>
+  </tr>
+  <tr>
+    <td>Structural insights into the substrate specificity and transport mechanisms in the Nitrate/Peptide Transporter (NPF) Family.</td>
+    <td>Chile - Fondecyt Iniciación No. 11180604</td>
+    <td>Principal Investigator</td>
+    <td>2018 – 2021</td>
+  </tr>
+  <tr>
+    <td>Análisis metabolómico de los efectos neuroprotectores de la tibolona en un modelo astrocitico humano de lipotoxicidad con ácido palmítico.</td>
+    <td>Colombia - Colciencias</td>
+    <td>International Advisor</td>
+    <td>2017 - 2020</td>
+  </tr>
+</table>
+</div>  
+
+ <script>
+    function openTAB(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+
+<script>
+var myIndex = 0;
+carousel();
+function carousel() {
+  var i;
+  
+ var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  } 
+   
+  myIndex++;
+     
+ if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000); // Change image every 2 seconds
+   
+}
+</script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100, density: { enable: true, value_area: 800 } },
+    color: { value: "#ffffff" },
+    shape: {
+      type: "circle",
+      stroke: { width: 0, color: "#000000" },
+      polygon: { nb_sides: 5 },
+      image: { src: "img/github.svg", width: 100, height: 100 }
+    },
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+    },
+    size: {
+      value: 10,
+      random: true,
+      anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 2
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: { enable: false, rotateX: 600, rotateY: 1200 }
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: false, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 400, line_linked: { opacity: 1 } },
+      bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+      repulse: { distance: 200, duration: 0.4 },
+      push: { particles_nb: 4 },
+      remove: { particles_nb: 2 }
+    }
+  },
+  retina_detect: true
+});
+var count_particles, stats, update;
+stats = new Stats();
+stats.setMode(0);
+stats.domElement.style.position = "absolute";
+stats.domElement.style.left = "0px";
+stats.domElement.style.top = "0px";
+document.body.appendChild(stats.domElement);
+count_particles = document.querySelector(".js-count-particles");
+update = function () {
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
+  requestAnimationFrame(update);
+};
+requestAnimationFrame(update);
+
+</script>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+  
 </body>
 </html>
